@@ -17,7 +17,7 @@ A Model Context Protocol (MCP) server for managing personal expenses with budget
 
 **Core Framework**
 - **FastMCP** - Model Context Protocol server framework
-- **Python 3.13+** - Modern Python with type hints
+- **Python 3.13+** - Modern Python 
 
 **Database**
 - **SQLite3** - Lightweight embedded database for local storage
@@ -87,21 +87,5 @@ Export your financial data to CSV or JSON format for further analysis in spreads
 - Monitor spending against monthly budgets
 - Analyze financial trends and patterns
 - Manage recurring bills and subscriptions
-- Export data for tax preparation or financial planning
+- Export data for financial planning
 - Get AI-powered insights through natural language queries
-
-## 🔒 Security & Validation
-
-- All inputs validated before database operations
-- SQL injection protection through parameterized queries
-- Category and date format validation
-- Amount constraints (positive numbers only)
-- Comprehensive error handling and reporting
-
-## 📝 License
-
-MIT License
-
----
-
-**Built with FastMCP and Python 3.13+**
