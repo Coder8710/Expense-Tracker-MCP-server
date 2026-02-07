@@ -13,7 +13,21 @@ A Model Context Protocol (MCP) server for managing personal expenses with budget
 - 🔄 **Recurring Expenses** - Automatic tracking of regular bills (first instance auto-added)
 - 📤 **Data Export** - Export to CSV/JSON files for external analysis
 - ✅ **Smart Validation** - Comprehensive input validation and error handling
+## 🔧 Tech Stack
 
+**Core Framework**
+- **FastMCP** - Model Context Protocol server framework
+- **Python 3.13+** - Modern Python with type hints
+
+**Database**
+- **SQLite3** - Lightweight embedded database for local storage
+
+**Standard Libraries**
+- **sqlite3** - Database operations
+- **json** - JSON data handling
+- **csv** - CSV export/import
+- **datetime** - Date validation and manipulation
+- **typing** - Type hints and annotations
 ## �️ Available MCP Tools
 
 ### Expense Management Tools (5)
