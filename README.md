@@ -21,7 +21,16 @@ A Model Context Protocol (MCP) server for managing personal expenses with budget
 
 **Database**
 - **SQLite3** - Lightweight embedded database for local storage
+## 📁 Project Files
 
+**main.py**  
+The core MCP server implementation containing all 16 tools, database initialization, validation logic, and MCP resource/prompt definitions. This is the entry point that starts the FastMCP server and handles all expense operations.
+
+**categories.json**  
+Predefined expense categories and subcategories used for validation and organization. This file ensures consistent categorization across all expenses and can be customized to add new categories or subcategories as needed.
+
+**expenses.db** (auto-generated)  
+SQLite database file created automatically on first run. Stores all expense transactions, budget configurations, and recurring expense definitions. Protected by .gitignore to keep your financial data private.
 ## �️ Available MCP Tools
 
 ### Expense Management Tools (5)
