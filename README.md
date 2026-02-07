@@ -22,12 +22,6 @@ A Model Context Protocol (MCP) server for managing personal expenses with budget
 **Database**
 - **SQLite3** - Lightweight embedded database for local storage
 
-**Standard Libraries**
-- **sqlite3** - Database operations
-- **json** - JSON data handling
-- **csv** - CSV export/import
-- **datetime** - Date validation and manipulation
-- **typing** - Type hints and annotations
 ## �️ Available MCP Tools
 
 ### Expense Management Tools (5)
