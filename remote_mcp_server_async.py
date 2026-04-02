@@ -1040,7 +1040,7 @@ async def export_to_file(start_date: str, end_date: str, filename: str, format: 
 
 # Resources and Prompts
 
-@mcp.resource("expense://categories", mime_type="application/json")
+@mcp.resource("expense://categories")
 async def categories():
     """Provides the list of available expense categories and subcategories."""
     try:
