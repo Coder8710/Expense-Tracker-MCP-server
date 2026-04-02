@@ -2,6 +2,7 @@ from fastmcp import FastMCP
 import os
 import aiosqlite
 import asyncio
+import sqlite3
 import json
 import csv
 from datetime import datetime
@@ -55,11 +56,11 @@ def validate_category(category: str, subcategory: str = "") -> Dict[str, Any]:
     
     return {"valid": True}
 
-async def init_db():
+def init_db():
     """Initialize database with expenses, budgets, and recurring expenses tables."""
-    async with aiosqlite.connect(DB_PATH) as c:
+    with sqlite3.connect(DB_PATH) as c:
         # Expenses table
-        await c.execute("""
+        c.execute("""
             CREATE TABLE IF NOT EXISTS expenses(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 date TEXT NOT NULL,
@@ -72,7 +73,7 @@ async def init_db():
         """)
         
         # Budgets table
-        await c.execute("""
+        c.execute("""
             CREATE TABLE IF NOT EXISTS budgets(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 category TEXT NOT NULL UNIQUE,
@@ -83,7 +84,7 @@ async def init_db():
         """)
         
         # Recurring expenses table
-        await c.execute("""
+        c.execute("""
             CREATE TABLE IF NOT EXISTS recurring_expenses(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 amount REAL NOT NULL,
@@ -99,9 +100,9 @@ async def init_db():
             )
         """)
         
-        await c.commit()
+        c.commit()
 
-asyncio.run(init_db())
+init_db()
 
 @mcp.tool()
 async def add_expense(date: str, amount: float, category: str, subcategory: str = "", note: str = ""):
