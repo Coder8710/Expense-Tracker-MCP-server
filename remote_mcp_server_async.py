@@ -9,7 +9,21 @@ from datetime import datetime
 from typing import Optional, Dict, List, Any
 from io import StringIO
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "expenses.db")
+def get_writable_dir():
+    if "DATA_DIR" in os.environ:
+        return os.environ["DATA_DIR"]
+    local_dir = os.path.dirname(__file__)
+    try:
+        test_file = os.path.join(local_dir, ".write_test")
+        with open(test_file, 'w') as f:
+            f.write("test")
+        os.remove(test_file)
+        return local_dir
+    except (IOError, OSError):
+        return "/tmp"
+
+DATA_DIR = get_writable_dir()
+DB_PATH = os.path.join(DATA_DIR, "expenses.db")
 CATEGORIES_PATH = os.path.join(os.path.dirname(__file__), "categories.json")
 
 mcp = FastMCP("ExpenseTracker")
@@ -994,8 +1008,8 @@ async def export_to_file(start_date: str, end_date: str, filename: str, format: 
         if not filename.endswith(('.csv', '.json')):
             filename += f'.{format}'
         
-        # Create file path in the same directory as the database
-        file_path = os.path.join(os.path.dirname(__file__), filename)
+        # Create file path in a writable directory
+        file_path = os.path.join(DATA_DIR, filename)
         
         async with aiosqlite.connect(DB_PATH) as c:
             cur = await c.execute("""
