@@ -1076,4 +1076,4 @@ def setup_budgets():
 4. Explain how to track my progress"""
 
 if __name__ == "__main__":
-    mcp.run(transport="streamable-http", host="0.0.0.0", port=8000, path="/mcp")
+    mcp.run()
