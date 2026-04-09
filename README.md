@@ -37,10 +37,10 @@ SQLite database file created automatically on first run. Stores all expense tran
 
 ## 🐳 Docker Image
 
-A pre-built Docker image is available on Docker Hub — no local Python setup required (The Docker image is private , but you can explore how docker image is built in "Expense Tracker MCP server dockerized" directory in this Github repository).
+A pre-built Docker image is available on Docker Hub — no local Python setup required (The Docker image is public , also you can explore how docker image is built in "Expense Tracker MCP server dockerized" directory in this Github repository).
 
 ```bash
-docker pull coder8710/expense-tracker-mcp-server
+docker pull coder980/expense-tracker-mcp-server
 ```
 
 
